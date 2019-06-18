@@ -40,6 +40,7 @@ public class WelcomeTest {
         String message = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
         Menu menu = new Menu();
         menu.addMenu("1", "List of books");
+        menu.addMenu("2", "Check out a book");
         Main.init();
 
         assertEquals(message + '\n' + menu.getMenuList() + '\n', bytes.toString());

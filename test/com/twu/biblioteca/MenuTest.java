@@ -47,4 +47,9 @@ public class MenuTest {
         Main.selectOption("a");
         assertEquals("Please select a valid option!\n", bytes.toString());
     }
+
+    @Test
+    public void shouldDisplayPromptToTypeInTheBookTitleWhenChooseCheckOutOption() {
+
+    }
 }

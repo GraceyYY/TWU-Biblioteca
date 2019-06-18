@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-import java.util.Set;
+import java.util.Scanner;
 
 public class Main {
     private static Welcome welcome = new Welcome("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
@@ -10,6 +10,7 @@ public class Main {
     public static void init() {
         welcome.showMessage();
         menu.addMenu("1", "List of books");
+        menu.addMenu("2", "Check out a book");
         menu.showMenu();
     }
 
@@ -17,8 +18,12 @@ public class Main {
         bookRepository.createMockList();
         switch (input) {
             case "1":
-                bookRepository.showAllBooksWithAuthorAndPublicationYear();
+                bookRepository.showAllBooks();
                 break;
+            case "2":
+                Scanner scanner = new Scanner(System.in);
+                String bookTitle = scanner.next();
+                bookRepository.checkOut(bookTitle);
             default:
                 System.out.println("Please select a valid option!");
         }
