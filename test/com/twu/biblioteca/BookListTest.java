@@ -42,4 +42,20 @@ public class BookListTest {
         assertEquals(allBooks, bytes.toString());
     }
 
+    @Test
+    public void shouldDisplayAllBooksWithAuthorAndPublicationYear() {
+        bookRepository = new BookRepository();
+        Map<String, Book> bookList = bookRepository.getBookList();
+        String allBooksWithAuthorAndPublicationYear = "";
+        for (Book book : bookList.values()) {
+            allBooksWithAuthorAndPublicationYear += (book.displayBookInfo() + '\n');
+        }
+
+        bookRepository.showAllBooksWithAuthorAndPublicationYear();
+
+        assertEquals(allBooksWithAuthorAndPublicationYear, bytes.toString());
+
+
+    }
+
 }
