@@ -48,8 +48,15 @@ public class MenuTest {
         assertEquals("Please select a valid option!\n", bytes.toString());
     }
 
-    @Test
-    public void shouldDisplayPromptToTypeInTheBookTitleWhenChooseCheckOutOption() {
-
-    }
+//    @Test
+//    public void shouldDisplayPromptToTypeInTheBookTitleWhenChooseCheckOutOption() {
+//        Main.selectOption("2");
+//        assertEquals("Please type the book title: \n", bytes.toString());
+//    }
+//
+//    @Test
+//    public void shouldDisplayPromptToTypeInTheBookTitleWhenChooseReturnOption() {
+//        Main.selectOption("3");
+//        assertEquals("Please type the book title: \n", bytes.toString());
+//    }
 }

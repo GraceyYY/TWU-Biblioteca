@@ -11,19 +11,28 @@ public class Main {
         welcome.showMessage();
         menu.addMenu("1", "List of books");
         menu.addMenu("2", "Check out a book");
+        menu.addMenu("3", "Return a book");
         menu.showMenu();
     }
 
     public static void selectOption(String input) {
         bookRepository.createMockList();
+        Scanner scanner = new Scanner(System.in);
+        String bookTitle;
         switch (input) {
             case "1":
                 bookRepository.showAllBooks();
                 break;
             case "2":
-                Scanner scanner = new Scanner(System.in);
-                String bookTitle = scanner.next();
+                System.out.println("Please type the book title: ");
+                bookTitle = scanner.next();
                 bookRepository.checkOut(bookTitle);
+                break;
+            case "3":
+                System.out.println("Please type the book title: ");
+                bookTitle = scanner.next();
+                bookRepository.returnBook(bookTitle);
+                break;
             default:
                 System.out.println("Please select a valid option!");
         }

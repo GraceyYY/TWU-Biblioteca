@@ -41,6 +41,7 @@ public class WelcomeTest {
         Menu menu = new Menu();
         menu.addMenu("1", "List of books");
         menu.addMenu("2", "Check out a book");
+        menu.addMenu("3", "Return a book");
         Main.init();
 
         assertEquals(message + '\n' + menu.getMenuList() + '\n', bytes.toString());

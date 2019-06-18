@@ -39,4 +39,14 @@ public class BookRepository {
         }
     }
 
+    public void returnBook(String bookTitle) {
+        Book book = this.bookList.get(bookTitle);
+        if (book != null && book.isCheckedOut()) {
+            book.setCheckedOut(false);
+            System.out.println("Thank you for returning the book");
+        } else {
+            System.out.println("That is not a valid book to return");
+        }
+    }
+
 }
