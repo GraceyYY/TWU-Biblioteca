@@ -21,6 +21,7 @@ public class BookListTest {
         console = System.out;
         System.setOut(new PrintStream(bytes));
         this.bookRepository = new BookRepository();
+        this.bookRepository.createMockList();
     }
 
     @After

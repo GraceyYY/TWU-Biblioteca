@@ -8,6 +8,9 @@ public class BookRepository {
 
     public BookRepository() {
         this.bookList = new HashMap<String, Book>();
+    }
+
+    public void createMockList() {
         bookList.put("The Hunger Games", new Book("The Hunger Games","Suzanne Collins",2008));
         bookList.put("Harry Potter and the Order of the Phoenix", new Book("Harry Potter and the Order of the Phoenix","J.K. Rowling", 2003));
         bookList.put("To Kill a MockingBird", new Book("To Kill a MockingBird", "Harper Lee", 1960));
