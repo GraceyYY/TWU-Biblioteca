@@ -7,7 +7,7 @@ public class Main {
 
     public static void init() {
         welcome.showMessage();
-        menu.addMenu("1","List of books");
+        menu.addMenu("1", "List of books");
         menu.showMenu();
     }
 

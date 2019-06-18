@@ -38,7 +38,13 @@ public class MenuTest {
         for (Book book : bookList.values()) {
             allBooksWithAuthorAndPublicationYear += ("| " + book.getName() + " | author: " + book.getAuthor() + " | publication year: " + book.getPublicationYear() + " |" + "\n");
         }
-        Main.selectOption(1);
+        Main.selectOption("1");
         assertEquals(allBooksWithAuthorAndPublicationYear, bytes.toString());
+    }
+
+    @Test
+    public void shouldDisplayNoticeMessageWhenChooseInvalidOption() {
+        Main.selectOption("a");
+        assertEquals("Please select a valid option!", bytes.toString());
     }
 }

@@ -14,7 +14,7 @@ public class Menu {
         this.menu.put(option, menu);
     }
 
-    public String getMenu() {
+    public String getMenuList() {
         String menuList = "";
         for (Map.Entry<String, String> menu : this.menu.entrySet()) {
             menuList += menu.getKey() + ". " + menu.getValue() + '\n';
@@ -23,6 +23,6 @@ public class Menu {
     }
 
     public void showMenu() {
-        System.out.println(this.getMenu());
+        System.out.println(this.getMenuList());
     }
 }

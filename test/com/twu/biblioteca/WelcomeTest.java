@@ -42,7 +42,7 @@ public class WelcomeTest {
         menu.addMenu("1", "List of books");
         Main.init();
 
-        assertEquals(message + '\n' + menu.getMenu() + '\n', bytes.toString());
+        assertEquals(message + '\n' + menu.getMenuList() + '\n', bytes.toString());
     }
 
 
