@@ -20,6 +20,7 @@ public class BookListTest {
         bytes = new ByteArrayOutputStream();
         console = System.out;
         System.setOut(new PrintStream(bytes));
+        this.bookRepository = new BookRepository();
     }
 
     @After
@@ -29,32 +30,29 @@ public class BookListTest {
 
     @Test
     public void shouldDisplayAllBooks() {
-        bookRepository = new BookRepository();
-        Map<String, Book> bookList = bookRepository.getBookList();
+        Map<String, Book> bookList = this.bookRepository.getBookList();
         String allBooks = "";
         for (String name :
                 bookList.keySet()) {
             allBooks += (name + '\n');
         }
 
-        bookRepository.showAllBooks();
+        this.bookRepository.showAllBooks();
 
         assertEquals(allBooks, bytes.toString());
     }
 
     @Test
     public void shouldDisplayAllBooksWithAuthorAndPublicationYear() {
-        bookRepository = new BookRepository();
-        Map<String, Book> bookList = bookRepository.getBookList();
+        Map<String, Book> bookList = this.bookRepository.getBookList();
         String allBooksWithAuthorAndPublicationYear = "";
         for (Book book : bookList.values()) {
             allBooksWithAuthorAndPublicationYear += (book.displayBookInfo() + '\n');
         }
 
-        bookRepository.showAllBooksWithAuthorAndPublicationYear();
+        this.bookRepository.showAllBooksWithAuthorAndPublicationYear();
 
         assertEquals(allBooksWithAuthorAndPublicationYear, bytes.toString());
-
 
     }
 
