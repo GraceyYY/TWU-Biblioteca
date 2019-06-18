@@ -16,8 +16,6 @@ public class WelcomeTest {
 
     @Before
     public void setUp() throws Exception {
-        welcome = new Welcome();
-        welcome.setMessage("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
         bytes = new ByteArrayOutputStream();
         console = System.out;
         System.setOut(new PrintStream(bytes));
@@ -30,10 +28,12 @@ public class WelcomeTest {
 
     @Test
     public void shouldPrintWelcomeMessage() {
+        String message = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
+        welcome = new Welcome();
+        welcome.setMessage(message);
         welcome.showMessage();
-        String message = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n";
 
-        assertEquals(message, bytes.toString());
+        assertEquals(message + '\n', bytes.toString());
     }
 
 
