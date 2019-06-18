@@ -7,7 +7,11 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.core.CombinableMatcher.both;
+import static org.hamcrest.core.StringEndsWith.endsWith;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class WelcomeTest {
     PrintStream console = null;
@@ -34,6 +38,17 @@ public class WelcomeTest {
         welcome.showMessage();
 
         assertEquals(message + '\n', bytes.toString());
+    }
+
+    @Test
+    public void shouldDisplayMenuAfterWelcomeMessage() {
+        String message = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
+        welcome = new Welcome();
+        welcome.setMessage(message);
+        welcome.setMenu("1. List of books");
+        welcome.init();
+
+        assertEquals(message + '\n' + welcome.getMenu() + '\n', bytes.toString());
     }
 
 
