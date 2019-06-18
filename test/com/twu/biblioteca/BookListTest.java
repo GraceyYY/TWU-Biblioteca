@@ -8,7 +8,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Map;
 
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class BookListTest {
     PrintStream console;
@@ -30,20 +33,6 @@ public class BookListTest {
     }
 
     @Test
-    public void shouldDisplayAllBooks() {
-        Map<String, Book> bookList = this.bookRepository.getBookList();
-        String allBooks = "";
-        for (String name :
-                bookList.keySet()) {
-            allBooks += (name + '\n');
-        }
-
-        this.bookRepository.showAllBooks();
-
-        assertEquals(allBooks, bytes.toString());
-    }
-
-    @Test
     public void shouldDisplayAllBooksWithAuthorAndPublicationYear() {
         Map<String, Book> bookList = this.bookRepository.getBookList();
         String allBooksWithAuthorAndPublicationYear = "";
@@ -51,9 +40,20 @@ public class BookListTest {
             allBooksWithAuthorAndPublicationYear += ("| " + book.getName() + " | author: " + book.getAuthor() + " | publication year: " + book.getPublicationYear() + " |" + "\n");
         }
 
-        this.bookRepository.showAllBooksWithAuthorAndPublicationYear();
+        this.bookRepository.showAllBooks();
 
         assertEquals(allBooksWithAuthorAndPublicationYear, bytes.toString());
+
+    }
+
+    @Test
+    public void shouldNotDisplayBooksThatAreCheckedOut() {
+        Map<String, Book> bookList = this.bookRepository.getBookList();
+        bookList.get("The Hunger Games").setCheckedOut(true);
+
+        this.bookRepository.showAllBooks();
+
+        assertThat(bytes.toString(), not(containsString("The Hunger Games")));
 
     }
 
