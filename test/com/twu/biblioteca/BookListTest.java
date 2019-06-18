@@ -47,7 +47,7 @@ public class BookListTest {
         Map<String, Book> bookList = this.bookRepository.getBookList();
         String allBooksWithAuthorAndPublicationYear = "";
         for (Book book : bookList.values()) {
-            allBooksWithAuthorAndPublicationYear += (book.displayBookInfo() + '\n');
+            allBooksWithAuthorAndPublicationYear += ("| " + book.getName() + " | author: " + book.getAuthor() + " | publication year: " + book.getPublicationYear() + " |" + "\n");
         }
 
         this.bookRepository.showAllBooksWithAuthorAndPublicationYear();
