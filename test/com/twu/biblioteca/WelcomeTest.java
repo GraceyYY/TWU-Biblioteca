@@ -33,8 +33,7 @@ public class WelcomeTest {
     @Test
     public void shouldPrintWelcomeMessage() {
         String message = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
-        welcome = new Welcome();
-        welcome.setMessage(message);
+        welcome = new Welcome(message);
         welcome.showMessage();
 
         assertEquals(message + '\n', bytes.toString());
@@ -43,12 +42,10 @@ public class WelcomeTest {
     @Test
     public void shouldDisplayMenuAfterWelcomeMessage() {
         String message = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
-        welcome = new Welcome();
-        welcome.setMessage(message);
-        welcome.setMenu("1. List of books");
-        welcome.init();
+        Menu menu = new Menu("1. List of books");
+        Main.init();
 
-        assertEquals(message + '\n' + welcome.getMenu() + '\n', bytes.toString());
+        assertEquals(message + '\n' + menu.getMenu() + '\n', bytes.toString());
     }
 
 
