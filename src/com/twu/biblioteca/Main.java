@@ -8,15 +8,16 @@ public class Main {
     private static BookRepository bookRepository = new BookRepository();
 
     public static void init() {
+        bookRepository.createMockList();
         welcome.showMessage();
         menu.addMenu("1", "List of books");
         menu.addMenu("2", "Check out a book");
         menu.addMenu("3", "Return a book");
-        menu.showMenu();
+        menu.addMenu("4", "Quit");
+        showOptions();
     }
 
     public static void selectOption(String input) {
-        bookRepository.createMockList();
         Scanner scanner = new Scanner(System.in);
         String bookTitle;
         switch (input) {
@@ -25,16 +26,27 @@ public class Main {
                 break;
             case "2":
                 System.out.println("Please type the book title: ");
-                bookTitle = scanner.next();
+                bookTitle = scanner.nextLine();
                 bookRepository.checkOut(bookTitle);
                 break;
             case "3":
                 System.out.println("Please type the book title: ");
-                bookTitle = scanner.next();
+                bookTitle = scanner.nextLine();
                 bookRepository.returnBook(bookTitle);
+                break;
+            case "4":
+                System.exit(0);
                 break;
             default:
                 System.out.println("Please select a valid option!");
         }
+        showOptions();
+    }
+
+    private static void showOptions() {
+        menu.showMenu();
+        System.out.println("Please select a option: ");
+        Scanner scanner = new Scanner(System.in);
+        selectOption(scanner.nextLine());
     }
 }
