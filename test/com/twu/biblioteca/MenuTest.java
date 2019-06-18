@@ -20,7 +20,8 @@ public class MenuTest {
         bytes = new ByteArrayOutputStream();
         console = System.out;
         System.setOut(new PrintStream(bytes));
-        menu = new Menu("1. List of books");
+        menu = new Menu();
+        menu.addMenu("1", "List of books");
     }
 
     @After

@@ -1,17 +1,28 @@
 package com.twu.biblioteca;
 
-public class Menu {
-    private String menu;
+import java.util.HashMap;
+import java.util.Map;
 
-    public Menu(String menu) {
-        this.menu = menu;
+public class Menu {
+    private Map<String, String> menu;
+
+    public Menu() {
+        this.menu = new HashMap<String, String>();
+    }
+
+    public void addMenu(String option, String menu) {
+        this.menu.put(option, menu);
     }
 
     public String getMenu() {
-        return this.menu;
+        String menuList = "";
+        for (Map.Entry<String, String> menu : this.menu.entrySet()) {
+            menuList += menu.getKey() + ". " + menu.getValue() + '\n';
+        }
+        return menuList;
     }
 
     public void showMenu() {
-        System.out.println(this.menu);
+        System.out.println(this.getMenu());
     }
 }

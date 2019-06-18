@@ -7,11 +7,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.core.CombinableMatcher.both;
-import static org.hamcrest.core.StringEndsWith.endsWith;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 public class WelcomeTest {
     PrintStream console = null;
@@ -42,7 +38,8 @@ public class WelcomeTest {
     @Test
     public void shouldDisplayMenuAfterWelcomeMessage() {
         String message = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
-        Menu menu = new Menu("1. List of books");
+        Menu menu = new Menu();
+        menu.addMenu("1", "List of books");
         Main.init();
 
         assertEquals(message + '\n' + menu.getMenu() + '\n', bytes.toString());
