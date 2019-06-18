@@ -45,6 +45,6 @@ public class MenuTest {
     @Test
     public void shouldDisplayNoticeMessageWhenChooseInvalidOption() {
         Main.selectOption("a");
-        assertEquals("Please select a valid option!", bytes.toString());
+        assertEquals("Please select a valid option!\n", bytes.toString());
     }
 }

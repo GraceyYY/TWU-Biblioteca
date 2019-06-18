@@ -14,6 +14,10 @@ public class Menu {
         this.menu.put(option, menu);
     }
 
+    public Map<String, String> getMenu() {
+        return this.menu;
+    }
+
     public String getMenuList() {
         String menuList = "";
         for (Map.Entry<String, String> menu : this.menu.entrySet()) {

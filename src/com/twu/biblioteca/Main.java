@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.Set;
+
 public class Main {
     private static Welcome welcome = new Welcome("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
     private static Menu menu = new Menu();
@@ -13,6 +15,12 @@ public class Main {
 
     public static void selectOption(String input) {
         bookRepository.createMockList();
-        bookRepository.showAllBooksWithAuthorAndPublicationYear();
+        switch (input) {
+            case "1":
+                bookRepository.showAllBooksWithAuthorAndPublicationYear();
+                break;
+            default:
+                System.out.println("Please select a valid option!");
+        }
     }
 }
