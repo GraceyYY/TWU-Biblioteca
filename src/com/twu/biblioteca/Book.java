@@ -12,6 +12,18 @@ public class Book {
     }
 
     public String displayBookInfo() {
-        return this.name + " (author: " + this.author + ", publication year: " + this.publicationYear + ")";
+        return "| " + this.name + " | author: " + this.author + " | publication year: " + this.publicationYear + " |";
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getAuthor() {
+        return this.author;
+    }
+
+    public int getPublicationYear() {
+        return this.publicationYear;
     }
 }
